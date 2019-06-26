@@ -23,8 +23,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 // MIDDLEWARE
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-// to serve static files (images) to the Client
-app.use(express.static('static'));
+
 
 
 
@@ -35,6 +34,9 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
+} else {
+  // to serve static files (images) to the Client
+  app.use(express.static('static'));
 }
 
 // Controllers
