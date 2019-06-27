@@ -25,6 +25,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 
+// Controllers
+const carsController = require('./controllers/cars');
+app.use('/cars', carsController);
+
+// index route for testing purposes
+app.get('/', (req, res) => {
+  console.log(req.headers);
+  res.send('hello cars');
+});
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -39,15 +48,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('static'));
 }
 
-// Controllers
-const carsController = require('./controllers/cars');
-app.use('/cars', carsController);
 
-// index route for testing purposes
-app.get('/', (req, res) => {
-  console.log(req.headers);
-  res.send('hello cars');
-});
 
 
 
