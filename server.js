@@ -30,11 +30,11 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 const carsController = require('./controllers/cars');
 app.use('/cars', carsController);
 
-// index route for testing purposes
-app.get('/', (req, res) => {
-  console.log(req.headers);
-  res.send('hello cars');
-});
+// // index route for testing purposes
+// app.get('/', (req, res) => {
+//   console.log(req.headers);
+//   res.send('hello cars');
+// });
 
 
 
