@@ -31,7 +31,7 @@ class App extends Component {
     fetch('/cars')
       .then(response => response.json())
       .then(resJSON => this.setState({ cars: resJSON }))
-      .catch(error => console.error(error));
+      .catch(error => console.log(error));
   }
 
   handleClick = (event, car) => {
