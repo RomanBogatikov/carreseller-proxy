@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 //  seed route (to seed cars into the database)
 
 app.get('/seed', (req, res) => {
+  console.log('seed');
   Car.create([
     {
       model: 'Skoda Fabia',
