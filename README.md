@@ -7,4 +7,4 @@ Steps to install app on your device:
 4. open a separate terminal tab, run ```npm start```
 5. in a present tab, ```cd client/```
 6. run ```npm start```
-7. visit seed route '/seed' only once to seed the database
+7. visit seed route ```http://localhost:5000/seed``` only once to seed the database
