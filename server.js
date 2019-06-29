@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 // path provides utilities for working with file and directory paths
 const path = require('path');
 const mongoose = require('mongoose');
+const Car = require('./models/Car');
 
 const app = express();
 const port = process.env.PORT || 5000;
