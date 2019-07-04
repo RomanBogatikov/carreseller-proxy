@@ -110,3 +110,22 @@ input[type="text"]:focus {
   width: 100%;
 }
 
+@media (max-width: 48rem) {
+  .car-detail-info {
+    flex-direction: column;
+
+  }
+  .car_details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .car_details > div {
+    flex-basis: 50%;
+  }
+  .img_container {
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+}
