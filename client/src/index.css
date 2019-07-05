@@ -27,12 +27,13 @@ fieldset, .img_container {
 }
 
 fieldset > div {
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 .img_container {
   text-align: center;
   line-height: 45vh;
+
 }
 
 img {
@@ -124,8 +125,11 @@ input[type="text"]:focus {
   }
   .img_container {
     line-height: 0;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    /* display: flex;
+    justify-content: center; */
+    height: 20vh;
+  }
+  img {
+    margin: 0 auto;
   }
 }
