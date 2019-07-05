@@ -18,7 +18,7 @@ class Cars extends PureComponent {
 
 
   render() {
-
+    // search bar functionality (to search by car model)
     const filteredList = this.props.cars.filter( car => car.model.toLowerCase().startsWith(this.state.filterTextInput.toLowerCase()));
 
     console.log('cars=', this.props.cars);
@@ -70,10 +70,5 @@ const Car = (props) => {
   )
 
 }
-
-// class Car extends Component {
-
-// }
-
 
 export default Cars;
