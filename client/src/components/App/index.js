@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cars from './Cars';
+import CarDetails from './CarDetails';
 
 // let baseURL = process.env.REACT_APP_BASEURL
 
@@ -18,6 +19,8 @@ class App extends Component {
     this.state = {
       cars: [],
       clicked_car: '',
+      // to display loading ring
+      loading: false,
     }
   };
 
@@ -28,9 +31,18 @@ class App extends Component {
 
   // function to fetch cars from the database
   getCars() {
-    fetch('/cars')
+    // change 'loading' state to true when getCars() fires
+    this.setState({ loading: true });
+    // function to display loading ring (for demonstration purposes)
+    const delay = time => new Promise(resolve => setTimeout(resolve, time));
+
+    delay(2000)
+      .then(() => fetch('/cars'))
       .then(response => response.json())
-      .then(resJSON => this.setState({ cars: resJSON }))
+      .then(resJSON => this.setState({
+         cars: resJSON,
+         loading: false,
+        }))
       .catch(error => console.log(error));
   }
 
@@ -51,36 +63,26 @@ class App extends Component {
       image_src = '/placeholder.png'
     }
     console.log('image_src=', image_src);
-    return (
-      <React.Fragment>
-        <div className="car-detail-info">
-          <fieldset>
-            <legend>
-              Car Detail Info
-            </legend>
-            <div className="car_details">
-              <div><b>Model: </b>{clicked_car.model}</div>
-              <div><b>Year: </b>{clicked_car.year}</div>
-              <div><b>Producer: </b>{clicked_car.producer}</div>
-              <div><b>Price, $: </b>{clicked_car.price}</div>
-              <div><b>Owner: </b>{clicked_car.owner}</div>
-              <div><b>Tel/Mobile: </b>{clicked_car['tel/mobile']}</div>
-              <div><b>Mileage: </b>{clicked_car.mileage}</div>
-              <div><b>Registered: </b>{clicked_car.registered}</div>
-            </div>
-          </fieldset>
-
-          <div className="img_container">
-            <img src={image_src} alt="a car" />
+    if (this.state.loading) {
+      return (
+        <React.Fragment>
+          <CarDetails clicked_car={clicked_car} image_src={image_src} />
+          <div className='cars_with_search'>
+            ...Loading
           </div>
-        </div>
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <React.Fragment>
+          <CarDetails clicked_car={clicked_car} image_src={image_src} />
+          <div className='cars_with_search'>
+            <Cars cars={cars} handleClick={this.handleClick}/>
+          </div>
+        </React.Fragment>
 
-        <div className='cars_with_search'>
-          <Cars cars={cars} handleClick={this.handleClick}/>
-        </div>
-      </React.Fragment>
-
-    )
+      )
+    }
   }
 }
 
