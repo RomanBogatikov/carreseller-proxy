@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import Cars from './Cars';
-import CarDetails from './CarDetails';
-
-// let baseURL = process.env.REACT_APP_BASEURL
-
-// if (process.env.NODE_ENV === 'development') {
-//   baseURL = 'http://localhost:3001/'
-// } else {
-//   baseURL = 'https://car-reseller-api.herokuapp.com/'
-// }
-
-// console.log('current base URL:', baseURL)
-
+import Cars from '../Cars';
+import CarDetails from '../CarDetails';
+import LoadingRing from '../LoadingRing';
 
 class App extends Component {
   constructor(props) {
@@ -67,9 +57,7 @@ class App extends Component {
       return (
         <React.Fragment>
           <CarDetails clicked_car={clicked_car} image_src={image_src} />
-          <div className='cars_with_search'>
-            ...Loading
-          </div>
+          <LoadingRing />
         </React.Fragment>
       )
     } else {
