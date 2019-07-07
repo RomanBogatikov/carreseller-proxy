@@ -1,10 +1,64 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CarDetailInfo = styled.div`
+  display: flex;
+  height: 45vh;
+
+  fieldset {
+    min-width: 12rem;
+
+    div {
+      line-height: 1.5rem;
+    }
+  }
+
+  fieldset, .img_container {
+    flex: auto;
+  }
+
+  .img_container {
+    text-align: center;
+    line-height: 45vh;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 48rem) {
+    & {
+      flex-direction: column;
+
+    }
+    .car_details {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .car_details > div {
+      flex-basis: 50%;
+    }
+    .img_container {
+      line-height: 0;
+      height: 20vh;
+    }
+    img {
+      margin: 0 auto;
+      // object-fit: contain;
+    }
+    fieldset {
+      height: auto;
+    }
+  }
+`
 
 const CarDetails = (props) => {
   const clicked_car = props.clicked_car;
   const image_src = props.image_src;
   return (
-  <div className="car-detail-info">
+  <CarDetailInfo className="car-detail-info">
     <fieldset>
       <legend>
         Car Detail Info
@@ -24,7 +78,7 @@ const CarDetails = (props) => {
     <div className="img_container">
       <img src={image_src} alt="a car" />
     </div>
-  </div>
+  </CarDetailInfo>
   )
 }
 
