@@ -37,7 +37,7 @@ class Cars extends PureComponent {
               <tr>
                 <th>Model</th>
                 <th>Year</th>
-                <th>Producer</th>
+                <th className="producer">Producer</th>
                 <th>Price</th>
                 <th>Mileage</th>
               </tr>
@@ -63,7 +63,7 @@ const Car = (props) => {
     <tr onClick={event => props.handleClick(event, car)}>
       <td>{car.model}</td>
       <td>{car.year}</td>
-      <td>{car.producer}</td>
+      <td className="producer">{car.producer}</td>
       <td>{car.price}</td>
       <td>{car.mileage}</td>
     </tr>

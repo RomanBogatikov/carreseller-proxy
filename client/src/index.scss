@@ -125,15 +125,20 @@ input[type="text"]:focus {
   }
   .img_container {
     line-height: 0;
-    /* display: flex;
-    justify-content: center; */
     height: 20vh;
   }
   img {
     margin: 0 auto;
+    // object-fit: contain;
   }
   fieldset {
     height: auto;
+  }
+}
+
+@media (max-width: 36rem) {
+  .producer {
+    display: none;
   }
 }
 
