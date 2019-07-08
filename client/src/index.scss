@@ -44,72 +44,72 @@ code {
 /* end style car-detail-info */
 
 /* style table of cars */
-.cars > table thead {
-  display: block;
-}
+// .cars > table thead {
+//   display: block;
+// }
 
-.cars > table > tbody {
-  display: block;
-  height: 45vh;
-  overflow: auto;
-}
+// .cars > table > tbody {
+//   display: block;
+//   height: 45vh;
+//   overflow: auto;
+// }
 
-.cars > table {
-  width: 100%;
-}
+// .cars > table {
+//   width: 100%;
+// }
 
-.cars > table > thead > tr, .cars > table > tbody > tr {
-  display: flex;
-  justify-content: space-between;
-  flex: auto;
-}
+// .cars > table > thead > tr, .cars > table > tbody > tr {
+//   display: flex;
+//   justify-content: space-between;
+//   flex: auto;
+// }
 
-.cars > table > thead > tr > *, .cars > table > tbody > tr > * {
-  flex-basis: 20%;
-}
+// .cars > table > thead > tr > *, .cars > table > tbody > tr > * {
+//   flex-basis: 20%;
+// }
 
-.cars > table > thead > tr > th {
-  text-align: left;
-}
+// .cars > table > thead > tr > th {
+//   text-align: left;
+// }
 
-tr {
-  border: 1px solid black;
-  margin: 0.5rem 1rem 0.5rem 1rem;
-  padding: 0.5rem;
-}
+// tr {
+//   border: 1px solid black;
+//   margin: 0.5rem 1rem 0.5rem 1rem;
+//   padding: 0.5rem;
+// }
 
-tbody > tr {
-  cursor: pointer;
-}
+// tbody > tr {
+//   cursor: pointer;
+// }
 
-tbody > tr:hover {
-  box-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.9);
-}
+// tbody > tr:hover {
+//   box-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.9);
+// }
 
-thead > tr {
-  box-shadow: 0 4px 2px -2px gray;
-  background-color: rgb(129, 230, 169);
-  margin-bottom: 0;
-}
+// thead > tr {
+//   box-shadow: 0 4px 2px -2px gray;
+//   background-color: rgb(129, 230, 169);
+//   margin-bottom: 0;
+// }
 
 
 /* end of style table for cars */
 
-.search {
-  text-align: right;
-}
+// .search {
+//   text-align: right;
+// }
 
-input[type="text"] {
-  box-sizing: border-box;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  width: 20rem;
-  transition: width 1s;
-}
+// input[type="text"] {
+//   box-sizing: border-box;
+//   font-size: 1rem;
+//   margin-top: 0.5rem;
+//   width: 20rem;
+//   transition: width 1s;
+// }
 
-input[type="text"]:focus {
-  width: 100%;
-}
+// input[type="text"]:focus {
+//   width: 100%;
+// }
 
 // @media (max-width: 48rem) {
 //   .car-detail-info {
@@ -136,11 +136,11 @@ input[type="text"]:focus {
 //   }
 // }
 
-@media (max-width: 36rem) {
-  .producer {
-    display: none;
-  }
-}
+// @media (max-width: 36rem) {
+//   .producer {
+//     display: none;
+//   }
+// }
 
 
 /* LOADING RING (from  https://codepen.io/mrrocks/pen/EiplA)*/

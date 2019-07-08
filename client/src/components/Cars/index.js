@@ -1,4 +1,79 @@
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
+
+const StyledCars = styled.div`
+  .cars > table thead {
+    display: block;
+  }
+
+  .cars > table > tbody {
+    display: block;
+    height: 45vh;
+    overflow: auto;
+  }
+
+  .cars > table {
+    width: 100%;
+  }
+
+  .cars > table > thead > tr, .cars > table > tbody > tr {
+    display: flex;
+    justify-content: space-between;
+    flex: auto;
+  }
+
+  .cars > table > thead > tr > *, .cars > table > tbody > tr > * {
+    flex-basis: 20%;
+  }
+
+  .cars > table > thead > tr > th {
+    text-align: left;
+  }
+
+  tr {
+    border: 1px solid black;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    padding: 0.5rem;
+  }
+
+  tbody > tr {
+    cursor: pointer;
+  }
+
+  tbody > tr:hover {
+    box-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.9);
+  }
+
+  thead > tr {
+    box-shadow: 0 4px 2px -2px gray;
+    background-color: rgb(129, 230, 169);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 36rem) {
+    .producer {
+      display: none;
+    }
+  }
+`
+
+const Search = styled.div`
+  & {
+    text-align: right;
+  }
+
+  input[type="text"] {
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    transition: width 1s;
+  }
+
+  input[type="text"]:focus {
+    width: 100%;
+  }
+`
 
 // Cars is a PureComponent because we don't want to re-render it when clicking on a car (PureComponent does a shallow compare on the component's props and state)
 class Cars extends PureComponent {
@@ -25,10 +100,10 @@ class Cars extends PureComponent {
     console.log('props in cars=', this.props);
     return(
 
-      <React.Fragment>
-        <div className="search">
+      <StyledCars>
+        <Search className="search">
           <input value={this.state.filterTextInput} onChange={this.handleChange} placeholder="Search by car model" type="text" />
-        </div>
+        </Search>
 
         <div className="cars">
 
@@ -50,7 +125,7 @@ class Cars extends PureComponent {
           </table>
 
         </div>
-      </React.Fragment>
+      </StyledCars>
     )
 
   }
