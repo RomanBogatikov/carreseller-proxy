@@ -1,65 +1,68 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes, ThemeProvider } from 'styled-components';
 
-// const StyledLoadingRing = styled.div`
-//   --offset: 187;
-//   --duration: 1.4s;
+const theme = {
+  duration: "1.4s",
+  offset: "187"
+}
 
-//   .spinner {
-//     animation: rotator var(- duration) linear infinite;
-//   }
+const rotator = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+`;
 
-//   @keyframes rotator {
-//     0% { transform: rotate(0deg); }
-//     100% { transform: rotate(270deg); }
-//   }
+const colors = keyframes`
+	0% { stroke: #4285F4; }
+	25% { stroke: #DE3E35; }
+	50% { stroke: #F7C223; }
+	75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+`;
 
-//   .path {
-//     stroke-dasharray: var(- offset);
-//     stroke-dashoffset: 0;
-//     transform-origin: center;
-//     animation:
-//       dash $duration ease-in-out infinite,
-//       colors (var(- duration)*4) ease-in-out infinite;
-//   }
+const dash = keyframes`
+  0% { stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 187/4;
+    transform:rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform:rotate(450deg);
+  }
+`;
 
-//   @keyframes colors {
-//     0% { stroke: #4285F4; }
-//     25% { stroke: #DE3E35; }
-//     50% { stroke: #F7C223; }
-//     75% { stroke: #1B9A59; }
-//     100% { stroke: #4285F4; }
-//   }
+const LoadingRingContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+`;
 
-//   @keyframes dash {
-//    0% { stroke-dashoffset: var(- offset); }
-//    50% {
-//      stroke-dashoffset: var(- offset)/4;
-//      transform:rotate(135deg);
-//    }
-//    100% {
-//      stroke-dashoffset: var(- offset);
-//      transform:rotate(450deg);
-//    }
-//   }
+const SVG = styled.svg`
+  animation: ${rotator} ${props => props.theme.duration} linear infinite;
+`;
 
-//   & {
-//     display: flex;
-//     flex-flow: column;
-//     justify-content: center;
-//     align-items: center;
-//     height: 55vh;
-//   }
-// `
+const Circle = styled.circle`
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
 
-const LoadingRing = (props) => {
+`;
+
+
+
+const LoadingRing = () => {
+  // console.log('theme=', theme);
   return (
-    <div className="loadingRingContainer">
+    <ThemeProvider theme={theme}>
+    <LoadingRingContainer>
       <div>Loading...</div>
-      <svg className="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <SVG className="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
         <circle className="path" fill="none" strokeWidth="6" strokeLinecap="round" cx="33" cy="33" r="30"></circle>
-      </svg>
-    </div>
+      </SVG >
+    </LoadingRingContainer>
+    </ThemeProvider>
   )
 }
 
