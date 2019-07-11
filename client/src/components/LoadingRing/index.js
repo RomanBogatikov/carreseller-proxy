@@ -23,11 +23,11 @@ const dash = keyframes`
   0% { stroke-dashoffset: 187; }
   50% {
     stroke-dashoffset: 187/4;
-    transform:rotate(135deg);
+    transform: rotate(135deg);
   }
   100% {
     stroke-dashoffset: 187;
-    transform:rotate(450deg);
+    transform: rotate(450deg);
   }
 `;
 
@@ -47,7 +47,9 @@ const Circle = styled.circle`
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
   transform-origin: center;
-
+  animation:
+    ${dash} 1.4s ease-in-out infinite,
+    ${colors} (1.4s*4) ease-in-out infinite;
 `;
 
 
@@ -59,7 +61,7 @@ const LoadingRing = () => {
     <LoadingRingContainer>
       <div>Loading...</div>
       <SVG className="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        <circle className="path" fill="none" strokeWidth="6" strokeLinecap="round" cx="33" cy="33" r="30"></circle>
+        <circle className="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
       </SVG >
     </LoadingRingContainer>
     </ThemeProvider>
