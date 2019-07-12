@@ -43,7 +43,7 @@ const SVG = styled.svg`
   animation: ${rotator} ${props => props.theme.duration} linear infinite;
 `;
 
-const Circle = styled.circle`
+const CIRCLE = styled.circle`
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
   transform-origin: center;
@@ -55,15 +55,15 @@ const Circle = styled.circle`
 
 
 const LoadingRing = () => {
-  // console.log('theme=', theme);
+  console.log('Circle=', CIRCLE)
   return (
     <ThemeProvider theme={theme}>
-    <LoadingRingContainer>
-      <div>Loading...</div>
-      <SVG className="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        <circle className="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-      </SVG >
-    </LoadingRingContainer>
+      <LoadingRingContainer>
+        <div>Loading...</div>
+        <SVG className="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <CIRCLE className="path" fill="none" strokeWidth="6" strokeLinecap="round" cx="33" cy="33" r="30" />
+        </SVG>
+      </LoadingRingContainer>
     </ThemeProvider>
   )
 }

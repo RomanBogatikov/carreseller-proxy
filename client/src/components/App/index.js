@@ -26,7 +26,7 @@ class App extends Component {
     // function to display loading ring (for demonstration purposes)
     const delay = time => new Promise(resolve => setTimeout(resolve, time));
 
-    delay(2000)
+    delay(30000)
       .then(() => fetch('/cars'))
       .then(response => response.json())
       .then(resJSON => this.setState({
